@@ -1,0 +1,358 @@
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Amiri, Georgia, "Times New Roman", serif;
+}
+
+h2{
+ color: #cc9712;;
+
+}
+
+/*NUEVOS ESTILOS PARA UBICAR EL CONTENIDO*/
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Para asegurar que el footer esté al final de la página */
+}
+
+
+main {
+    overflow: auto; /* Maneja el desbordamiento */
+    flex: 1; /* Permite que el main tome todo el espacio disponible */
+    padding-top: 140px; /* Espacio solo en la parte superior */
+}
+
+
+
+.display-4 {
+    font-size: 2.5rem;
+    
+}
+
+.row h1{
+    color:  #800000; ;
+}
+
+
+
+@media (min-width: 768px) {
+    .display-4 {
+        font-size: 3rem;
+    }
+}
+
+.flex-auto {
+    flex: 0 0 auto;
+}
+
+.h-250 {
+    height: 250px;
+}
+
+@media (min-width: 768px) {
+    .h-md-250 {
+        height: 250px;
+    }
+}
+
+/*
+   * Blog posts
+   */
+.blog-post {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-post-title {
+    font-size: 2.5rem;
+}
+
+.blog-post-meta {
+    margin-bottom: 1.25rem;
+    color: #727272;
+}
+
+.text-bg-dark { background-color: whitesmoke !important; }
+
+
+/*.logoby{
+    filter: invert(1); /* Cambia los colores: útil para convertir negro a blanco 
+}*/
+
+
+/*header*/
+
+
+.vinoyaceite {
+    width: 150px;
+}
+
+.vinoyaceite2 {
+    width: 200px;
+    display: block;  /* Cambia el tipo a bloque */
+    margin: 0 auto; /* Centra la imagen */
+    padding-bottom: 20px;
+     
+ }
+ 
+
+/*MAIN */
+
+main a:hover {
+    color: #cc9712; /* Color dorado al pasar el ratón */
+
+}
+
+/*FOOTER*/
+
+footer{
+    background-color: rgba(182, 179, 179, 0.216);
+    position: relative; /* Asegura que no flote sobre el contenido */
+}
+
+
+footer .list-unstyled li a {
+    color:  #800000;; /* Color inicial de los íconos */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+footer .list-unstyled li a:hover {
+    color: #ffd700; /* Color dorado al pasar el ratón */
+}
+
+
+footer h5 {
+    color: #cc9712; /* Color oro para los títulos */
+}
+
+footer .nav-link {
+    color: #800000; /* Color vino para los enlaces de las listas */
+}
+
+footer .nav-link:hover {
+    color: #cc9712; /* Color dorado al pasar el ratón */
+}
+
+.minifooter .nav-link {
+    font-size: small;
+}
+
+.logoby{
+    width: 30px;
+    margin-left: auto;
+}
+
+/*archivo BASE NAVBAR*/
+
+.navbar-nav {
+    text-align: center;
+}
+
+/*HEADER*/
+
+
+header .menu{
+    background-color: hsla(38, 79%, 43%, 0.393); /* 50% de transparencia */
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el efecto 3D */
+    transform: translateZ(0); /* Ayuda a activar el renderizado 3D en algunos navegadores */
+    
+    
+}
+
+.index{
+    margin-top: 150px;
+
+}
+
+/*MENU*/
+
+/*.dropdown-menu {
+    position: absolute; /* Posición relativa al elemento padre 
+    top: 0; /* Alineación vertical 
+    left: 100%; /* Alinea el menú a la derecha del elemento que lo activa 
+    display: none; /* Oculta por defecto 
+    /*overflow-y: auto; /* Permitir scroll dentro del dropdown 
+    
+    
+}*/
+
+
+/*ESTILOS TARJETA SUBLISTA*/
+.sublista {
+    background-color:  #a0ebfc;
+    flex-direction: column; /* Alinea los elementos en columna */
+    margin-left: 70px;
+    width: 200px;
+    border-radius: 22px;  /*cambie la configuracion de gropdown-menu por sublista*/
+    transition: background-color 0.3s ease;
+    
+  
+}
+
+.dropdown-menu a{
+    text-align: center;
+    border-radius: 20px;
+    color: gray;
+    font-size: 20px;
+   
+}
+
+
+.dropdown-menu a:hover{
+    color:  #800000; /* Cambia el color del texto */
+    background-color: #cc9712; /* Cambia el color de fondo */
+
+}
+
+
+
+
+
+
+
+.dropdown.show .dropdown-menu {
+    display: block; /* Muestra el menú cuando la clase 'show' está activa */
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Muestra el menú al pasar el mouse */
+}
+
+.submenu {
+    margin-bottom: 25px; /* Ajusta el valor según sea necesario */
+
+}
+
+
+
+.nav-link {
+    color: white;
+    font-size: 20px;
+}
+
+
+
+.nav-link:hover {
+    color:  #800000; /* Cambia el color al pasar el mouse */
+}
+
+.vinoyaceite3{
+    filter: brightness(0) invert(1); /* Intenta hacer que el logo se vea blanco */
+    width: 250px;
+
+}
+
+.offcanvas-header{
+    background-color: #800000;
+   
+}
+
+.offcanvas {
+    height: 100vh; /* Asegúrate de que ocupe toda la altura de la ventana */
+    background-color: transparent; /* Offcanvas en sí mismo transparente */
+   
+}
+
+
+.offcanvas-body{
+    background-color: rgba(204, 151, 18, 0.574); /* Color oro con 50% de opacidad */
+    overflow-y: auto; /* Permitir scroll solo si es necesario */
+    max-height: calc(100vh - 56px); /* Ajustar según el tamaño del encabezado */
+    padding: 1rem; /* Ajustar el padding */
+    border-radius: 0 0 100px 0 !important;; /* Esquinas redondeadas solo a la derecha */
+    max-height: calc(100vh - 56px); /* Ajustar según el tamaño del encabezado */
+ 
+
+}
+
+/* para posts clase table*/
+
+
+
+/*para configuraciones nuevas dentro del main*/
+.bienvenido{
+    margin-top: -60px;
+}
+
+.bienvenido2{
+    margin-top: -100px;
+}
+
+.registrar {
+    margin-top: -10px ;
+}
+
+.crear{
+    padding-bottom: 20px;
+}
+
+.perfil{
+    padding-bottom: 20px;
+}
+
+.profile{
+    margin-top: -30px;
+}
+
+
+
+/*para la linea del footer*/
+
+.custom-border-top {
+    border-top: 1px solid  #800000; /* Ajusta el grosor y el color como desees */
+}
+
+input[readonly] {
+    background-color: #f5f5f5; /* Color de fondo que simula estar deshabilitado */
+    color: #6c757d; /* Color del texto más claro */
+    border: 1px solid #ced4da; /* Borde similar al de un campo deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor para que indique que no se puede editar */
+}
+
+
+
+/*NOTA: CONFIGURAR OJO PASSWORD*/
+
+.eye-icon {
+    display: inline-block;
+    width: 30px; /* Ajusta según sea necesario */
+    height: 20px;
+    background-size: contain; /* Asegúrate de que la imagen se ajuste */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    justify-content: center;
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Ojo abierto */
+.eye-icon.open {
+    background-image: url('/static/img/ojo-abierto.png');
+}
+
+/* Ojo tachado */
+.eye-icon.closed {
+    background-image: url('/static/img/ojo-tachado.png');
+}
+
+
+/*configurar fondo del ojo*/
+
+.input-group-text{
+    background-color: white;
+
+}
+
+/* continuar leyendo*/
+
+.stretched-link {
+    color: #8B0000; /* Color vino */
+    text-decoration: none; /* Opcional: quita el subrayado si lo deseas */
+}

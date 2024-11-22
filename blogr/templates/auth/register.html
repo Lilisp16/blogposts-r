@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- Sección de bienvenida -->
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5 bienvenido2">
+            <div class="col-lg-6 text-center text-lg-start registrar">
+                <h1 class="display-4 fw-bold  mb-3 fst-italic">{% block title  %}Registrate en VINO Y ACEITE {% endblock %} </h1>
+
+                <p class="col-lg-10 fs-4">Aquí podrás compartir tus ideas, pensamientos y experiencias con una comunidad
+                    global de lectores.
+                    Nuestra plataforma es fácil de usar y te permite publicar tus blogs en pocos pasos.
+                </p>
+
+                <p class="col-lg-10 fs-4">
+                    ¡Únete a nuestra comunidad hoy y comienza a compartir tus ideas con el mundo!
+                </p>
+            </div>
+
+            <div class="col-md-10 mx-auto col-lg-6">
+                <form class="p-4 p-md-5 border rounded-3 bg-light" method="post">
+
+
+                    <!-- Bloque para mostrar mensajes flash -->
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="alert alert-danger" role="alert">
+                                <ul>
+                                    {% for message in messages %}
+                                        {{ message }}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="username" name="username" required placeholder="name@example.com">
+                        <label for="username">Nombre de perfil</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="email" name="email" required placeholder="name@example.com">
+                        <label for="email">Correo</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="password" name="password" required minlength="6" placeholder="Password">
+                        <label for="password">Contraseña</label>
+                    </div>
+
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Registrate</button>
+                    <hr class="my-4">
+                    <p class="text-muted text-center"> ¿Ya tienes una cuenta en VINOYACEITE?
+                        <a href="{{ url_for('auth.login') }}">Iniciar Sesión</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+
+    {% block row %}
+    {% endblock %}
