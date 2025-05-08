@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Editar {{ seccion.replace('_', ' ').title() }}</h2>
+
+  <form method="POST">
+    <div class="form-group">
+      <label for="contenido">Contenido</label>
+      <textarea id="contenido" name="contenido" rows="10" class="form-control">{{ contenido }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-success mt-3">Guardar cambios</button>
+     <a href="{{ url_for('home.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="alert alert-success mt-3">
+        {% for category, message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+
+
+
+
+  <!-- Cargar el script de CKEditor desde el CDN -->
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+<script>
+  // Inicializar CKEditor en el textarea
+  ClassicEditor
+    .create(document.querySelector('#contenido'))
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+{% endblock %}

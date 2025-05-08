@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- Estilos de bootstrap y de app -->
+  {% block head %}
+   {{ super() }} <!-- Esto incluye el contenido del bloque de la plantilla base, asegurando que los scripts globales (como Bootstrap) no se sobrescriban y se carguen antes de cualquier script específico de esta vista. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colaboradores.css') }}">
+  {% endblock %}
+
+  {% block menu %}
+  {% endblock %}
+
+  <!-- Título dinámico dependiendo si es editar o agregar -->
+  <h1 class="h1col">{% if post %}Editar Post{% else %}Añadir Nuevo Post{% endif %}</h1>
+
+  <!-- Formulario de crear o editar post con posición relativa -->
+  <form class="form-col" method="POST" action="{{ url_for('colaborador.editar_contenido', post_id=post.id) if post else url_for('colaborador.nuevo_contenido') }}" style="position: relative;">
+   
+    <!-- Ícono de cerrar (X) en la parte superior derecha -->
+    <a href="{{ url_for('colaborador.colaboradores') }}" class="icon-close">
+      <i class="fas fa-times"></i> <!-- Ícono de Font Awesome para "X" -->
+    </a>
+
+    <!-- Título del post -->
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" value="{{ post.titulo if post else '' }}" required>
+    </div>
+
+    <!-- Descripción del post -->
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required>{{ post.descripcion if post else '' }}</textarea>
+    </div>
+
+    <!-- Enlace (opcional) -->
+    <div class="mb-3">
+      <label for="enlace" class="form-label">Enlace (opcional)</label>
+      <input type="url" class="form-control" id="enlace" name="enlace" value="{{ post.enlace if post else '' }}">
+    </div>
+
+    <!-- Código embebido-->
+    <div class="mb-3">
+      <label for="codigo" class="form-label">Código Embebido</label>
+      <textarea class="form-control" id="codigo" name="codigo" rows="4">{{ post.codigo if post else '' }}</textarea>
+    </div>
+
+    <!-- País -->
+    <div class="mb-3">
+      <label for="pais" class="form-label">País</label>
+      <select class="form-control" id="pais" name="pais" required>
+        <!-- Opciones de países se llenarán con JavaScript -->
+        <option value="" disabled selected>Seleccione un país</option>
+      </select>
+    </div>
+
+    <!-- Red Social (opcional) -->
+    <div class="mb-3">
+      <label for="red_social" class="form-label">Red Social</label>
+      <input type="url" class="form-control" id="red_social" name="red_social" value="{{ post.red_social if post else '' }}">
+    </div>
+
+    <!-- Botón de acción -->
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-primary">
+        {% if post %}Guardar cambios{% else %}Publicar contenido{% endif %}
+      </button>
+    </div>
+  </form>
+
+  <!-- Si el usuario no está logueado, mostrar un mensaje -->
+  {% if not g.user %}
+    <p>Inicia sesión para añadir contenido.</p>
+  {% endif %}
+{% endblock %}  <!-- Cierre del bloque 'content' -->
+
+{% block scripts %}
+ {{ super() }} <!-- Esto incluye el contenido del bloque de la plantilla base, asegurando que los scripts globales (como Bootstrap) no se sobrescriban y se carguen antes de cualquier script específico de esta vista. -->
+  
+  
+  <script>
+    // Llamada a la API de países para llenar el select
+    fetch('https://countriesnow.space/api/v0.1/countries')
+      .then(response => response.json())
+      .then(data => {
+        const paisSelect = document.getElementById('pais');
+        if (data.error === false && Array.isArray(data.data)) {
+          data.data.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country.country; // Usamos el nombre del país como valor
+            option.textContent = country.country; // Usamos el nombre del país como texto visible
+            paisSelect.appendChild(option);
+          });
+        } else {
+          console.error('No se encontraron países en la respuesta de la API');
+        }
+      })
+      .catch(error => console.error('Error fetching countries:', error));
+  </script>
+
+{% endblock %}  <!-- Cierre del bloque 'scripts' -->

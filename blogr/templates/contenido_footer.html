@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="contenido-footer">
+    <h2>{{ seccion.replace('_', ' ').title() }}</h2>
+    <p>
+      {% if contenido %}
+
+        {{ contenido|safe }}
+      {% else %}
+        El contenido de esta sección no está disponible en este momento.
+      {% endif %}
+    </p>
+  </div>
+
+
+
+<!-- Botón de editar solo visible para el administrador -->
+  {% if 'user_id' in session and get_user(session['user_id']).is_admin %}
+  <a href="{{ url_for('home.editar', seccion=seccion) }}" class="btn btn-outline-info mini_editar">Editar info empresa</a>
+  {% endif %}
+
+{% endblock %}

@@ -1,6 +1,23 @@
 env-blog
 
 
+# Entorno virtual
+env-vya/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Configuración de VSCode
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+
+# Migraciones (opcional si no quieres subirlas)
+migrations/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -132,6 +149,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
 
 # Spyder project settings
 .spyderproject

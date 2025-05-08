@@ -59,12 +59,19 @@ def update(id):
     return render_template('admin/update.html', post=post)
 
 #Eliminar un post
-@bp.route('/delete/<int:id>')
+@bp.route('/delete/<int:id>', methods=['POST'])
 @login_required
 def delete(id):
     post = Post.query.get_or_404(id)
     db.session.delete(post)
     db.session.commit()
     flash(f'El blog {post.title} se elimino correctamente')
-      
+
     return redirect(url_for('post.posts'))
+
+#ruta para ver blog en mis blog
+@bp.route('/view/<int:id>', methods=['GET'])
+@login_required
+def view(id):
+    post = Post.query.get_or_404(id)
+    return render_template('blog.html', post=post)

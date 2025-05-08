@@ -1,0 +1,510 @@
+/* Estilos generales para la página de colaboradores */
+
+/* Diseño básico para el contenido de la página */
+/*.content {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}*/
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+/*.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}*/
+
+
+
+/* Diseño de los posts de los colaboradores */
+.post {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post h3 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.post p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.post a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+/* Botón "Añadir Post" (solo afecta al contenido principal) */
+.content .btn-outline-info {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+}
+
+.content .btn-outline-info:hover {
+    background-color: #0056b3;
+}
+
+.content .btn-outline-info:active {
+    background-color: #004085;
+}
+
+/* Estilos para cuando no hay posts */
+.no-posts-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Estilos del formulario de edición para colaboradores (solo afecta a la sección del formulario) */
+/* Estilos para el formulario de edición */
+.form-col {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-col div {
+    margin-bottom: 15px;
+}
+
+.form-col label {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-col input,
+.form-col textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.form-col textarea {
+    min-height: 150px;
+}
+
+.form-col button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form-col button:hover {
+    background-color: #0056b3;
+}
+
+.form-col button:active {
+    background-color: #004085;
+}
+
+
+/* Ícono de cerrar (X) */
+.icon-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #cc9712;  /* Color negro para el ícono */
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;  /* Asegura que el ícono quede por encima de otros elementos */
+}
+
+.icon-close:hover {
+    color: #8B0000;  /* Cambia el color al pasar el ratón (hover) */
+}
+
+h2{
+    color: #cc9712;
+   }
+
+.h1col{
+    color: #cc9712;
+   }
+
+.h5col{
+    color: #8B0000;
+}
+   
+   h3{
+       color: #cc9712;
+      }
+   
+      h4{
+       color: #8B0000;
+   
+      }
+   
+
+
+
+
+/* Estilo para el contenido expandible */
+
+.description-toggle-link {
+    color: #FFD700;  /* Color oro */
+    text-decoration: none;  /* Elimina subrayado */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+   
+   
+}
+
+.description-toggle-link:hover {
+    color: #8B0000;  /* Color oro al pasar el ratón */
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #333;
+}
+
+
+.pcol a{
+    color: #FFD700;
+    text-decoration: none;  /* Elimina subrayado */
+
+}
+
+
+/* Tamaño personalizado para los iconos */
+.social-col {
+    font-size: 25px; /* Tamaño específico */
+}
+
+
+
+
+/* Contenedor para la información del autor, fecha, país y iconos */
+.author-info {
+    display: flex;
+    justify-content: space-between; /* Esto distribuirá los elementos a ambos extremos */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Estilo para el icono de la red social */
+.social-icon {
+    font-size: 1.3rem; /* Asegura que el icono no sea muy pequeño */
+    margin-left: 10px; /* Un poco de separación entre los iconos */
+    color: #FFD700;  /* O el color que prefieras */
+}
+
+/* Alineación del país y iconos de redes sociales */
+.author-info .country {
+    font-size: 1rem;
+    color: #666;
+}
+
+.author-info .social-icons {
+    display: flex;
+    align-items: center;
+}
+
+
+.social-col i {
+    margin-bottom: 20px;
+}
+
+
+/* Contenedor de las publicaciones, distribución flexible en filas */
+
+
+/* Asegurarse de que la fila esté centrada en la página */
+.row_colab {
+    display: flex;
+    justify-content: center; /* Centra las columnas horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a múltiples filas */
+    gap: 20px; /* Añade espacio entre las columnas */
+    margin: 0 auto; /* Centra la fila en el contenedor */
+    width: 100%; /* Asegura que la fila ocupe todo el ancho disponible */
+    max-width: 1200px; /* Ajusta el ancho máximo de la fila (puedes cambiar el valor si lo deseas) */
+}
+
+/* Asegurarse de que las tarjetas no se estiren más de lo necesario */
+.col {
+    display: flex;
+    justify-content: center; /* Centra la tarjeta dentro de su columna */
+    flex: 1 1 45%; /* Dos tarjetas por fila (aproximadamente el 45% del ancho) */
+    max-width: 60%; /* Limita el ancho máximo de cada columna */
+    padding: 10px; /* Añade algo de espacio entre las columnas */
+}
+
+/* Para pantallas pequeñas, hacer que las tarjetas ocupen el 100% del ancho */
+@media (max-width: 767px) {
+    .col {
+        flex: 1 1 100%; /* En pantallas pequeñas, las tarjetas ocuparán todo el ancho */
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+/* Estilo de cada tarjeta */
+.card {
+    margin-bottom: 20px;  /* Espacio inferior entre tarjetas */
+    padding: 15px;  /* Espacio interno dentro de la tarjeta */
+    max-width: 100%; /* Limita el tamaño máximo de las tarjetas */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    margin-left: auto; /* Centra las tarjetas horizontalmente */
+    margin-right: auto; /* Centra las tarjetas horizontalmente */
+    box-sizing: border-box;
+}
+
+
+
+.card-body {
+    padding: 15px; 
+   /* box-sizing: border-box;*/
+    overflow-x: auto; /* Permite el scroll solo cuando sea necesario */
+}
+
+
+/* Asegura que las tarjetas no se expandan demasiado 
+.card iframe,
+.card .audio-container {
+    width: 100%;
+    height: auto;
+}*/
+
+
+/* Contenedor para el iframe, manteniendo una relación de aspecto 16:9 */
+.card .embed-code {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;  /* Relación de aspecto 16:9 (100 * 9 / 16 = 56.25%) */
+    height: 0;
+    overflow: hidden;
+   /* background: #000; /* Fondo negro para el área que no es cubierta por el iframe */
+    margin: 0 auto;
+}
+
+/* El iframe dentro del contenedor ajustado */
+.card .embed-code iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;  /* Elimina el borde del iframe */
+}
+
+
+
+
+.card .card iframe, .card .audio-container {
+    width: 100%;
+   /* max-width: 100%;*/
+    height: auto;
+   
+}
+
+
+
+
+
+.card-title, .card-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+
+/* Zoom en la tarjeta al hacer clic */
+/* Efecto de zoom para la tarjeta */
+.card {
+    transition: transform 0.3s ease-in-out;  /* Animación suave al aplicar el zoom */
+}
+
+.card.zoomed {
+    transform: scale(1.05);  /* Escala la tarjeta al 105% */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);  /* Sombra para hacerla más visible */
+}
+
+
+
+
+
+/*otras configuraciones para decorar*/
+
+.posts-col{
+ background-image: url('../img/col9.png'); /* Ruta de la imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  margin-bottom: 50px;
+  margin: 100px;
+  padding: 20px; /* Espaciado interno */
+  border-radius: 15px; /* Bordes redondeados */
+  
+  /* Efectos de flotación 3D */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Sombra difusa para 3D */
+  
+  /* Transformación 3D moderada */
+  transform: translateZ(0);  /* Sutil activación del contexto 3D sin rotación exagerada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+/* Efecto al pasar el ratón */
+.posts-col:hover {
+  transform: translateY(-10px) translateZ(10px); /* Mover ligeramente hacia arriba */
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4); /* Sombra más profunda */
+}
+  
+
+
+/*.posts-col{
+background-color: black;
+padding: 20px;
+}*/
+
+
+
+.posts-col2 {
+    background-image: url('../img/col6.jpeg');
+    background-size: cover;
+    background-position: center; 
+    margin: -18px 10px 80px 80px;
+    max-width: 550px; /* Ancho máximo de la tarjeta */
+    padding: 50px; /* Ajusta el padding */
+    position: relative; /* Necesario para posicionar el pseudo-elemento encima de la imagen */
+    height: 320px; /* Ajusta la altura de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0px 0px 150px;
+  }
+  
+  .posts-col2::before {
+    content: ''; /* Crea un pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente para oscurecer la imagen */
+    z-index: 0; /* Coloca el fondo oscuro detrás del texto */
+  }
+  
+   .posts-col2 p {
+    z-index: 1; /* Asegura que el texto esté por encima del fondo oscuro */
+  }
+  
+  .posts-col3 {
+    color: #b7a01c;  /* Color que prefieres */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 1; /* Asegura que el texto esté por encima del fondo oscuro */
+    text-align: justify; /* Justifica el texto */
+    width: 100%; /* Asegura que el h2 ocupe todo el ancho disponible */
+  }
+  
+  .posts-col2 h2 {
+    font-style: italic; /* Aplica cursiva a la fuente */
+    font-size: 40px;  /* Tamaño de fuente */
+    color: white; /* Color del texto */
+    z-index: 1; /* Asegura que el texto esté por encima del fondo oscuro */
+    text-align: justify; /* Justifica el texto */
+    width: 100%; /* Asegura que el h2 ocupe todo el ancho disponible */
+  }
+  
+
+
+
+  
+
+
+  .mss-col {
+    position: relative; /* Necesario para el pseudo-elemento */
+    background-image: url('../img/col4.jpeg');
+    background-size: cover; 
+    background-position: center;
+    margin: -350px 30px 80px 80px; /* Márgenes para separar el elemento */
+    color: white; /* Color del texto */
+    padding: 50px;  /* Relleno dentro de la tarjeta */
+    border-radius: 50%; /* Hace que el contenedor tenga forma circular */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para simular una tarjeta */
+    max-width: 250px;  /* Ancho máximo de la tarjeta */
+    height: 250px; /* Altura para hacer el círculo perfecto */
+    text-align: center;  /* Alinear el texto al centro */
+    font-weight: 500;  /* Hacer que el texto sea ligeramente más grueso */
+    display: block; /* Para que sea de bloque y se acomode bien en contenedor */
+    float: right; /* Hace que el contenedor se ubique a la derecha */
+    overflow: hidden; /* Para asegurarnos que todo el contenido que se desborde quede oculto */
+}
+
+
+.mss-col::before {
+    content: ""; /* Necesario para crear el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.767); /* Fondo oscuro con opacidad */
+    border-radius: 50%; /* Asegura que el fondo oscuro también sea circular */
+    z-index: 1; /* Asegura que el pseudo-elemento esté detrás del contenido */
+}
+
+.mss-col > * {
+    position: relative;
+    z-index: 2; /* Asegura que el texto esté encima del fondo oscuro */
+}
+
+.mss-col p{
+    font-size: 20px;  /* Tamaño de fuente */
+    
+}
+
+.postcol_button{
+    width: 150px;      /* Ancho del botón */
+    height: 60px;      /* Alto del botón */
+    font-size: 20px;
+    padding: 13px;
+  }
+
+  .Miscol_button{
+    font-size: 18px;
+    margin-top: 18px;
+    color: #FFD700
+
+  }

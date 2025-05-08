@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Editar {{ subseccion.replace('_', ' ').title() }}</h2>
+
+  <form method="POST">
+    <div class="form-group">
+      <label for="contenido">Contenido:</label>
+      <textarea id="contenido" name="contenido" rows="10" class="form-control">{{ contenido }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-success">Guardar cambios</button>
+    <a href="{{ url_for('home.index') }}" class="btn btn-secondary mt-3 cancelarBB">Cancelar</a>
+
+  </form>
+
+
+
+
+
+
+   <!-- Cargar el script de CKEditor desde el CDN -->
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+<script>
+  // Inicializar CKEditor en el textarea
+  ClassicEditor
+    .create(document.querySelector('#contenido'))
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+{% endblock %}

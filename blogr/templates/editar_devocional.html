@@ -1,0 +1,34 @@
+<!-- editar_devocional.html -->
+
+<!-- editar_devocional.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Editar Devocional</h1>
+
+<form method="POST" class="devocional-form">
+  <div class="form-group">
+    <label for="contenido">Editar Devocional</label>
+    <!-- El campo textarea donde se cargará CKEditor -->
+    <textarea id="contenido" name="contenido" rows="40" class="form-control editar__devocional">{{ contenido }}</textarea>
+  </div>
+
+  <button type="submit" class="btn btn-outline-success mt-3">Guardar Cambios</button>
+
+  <!-- Botón Cancelar -->
+  <a href="{{ url_for('home.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
+</form>
+
+<!-- Cargar el script de CKEditor desde el CDN -->
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+<script>
+  // Inicializar CKEditor en el textarea
+  ClassicEditor
+    .create(document.querySelector('#contenido'))
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+
+{% endblock %}
+

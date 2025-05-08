@@ -59,11 +59,7 @@ body {
     user-select: none;
   }
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
+ 
 
   .b-example-divider {
     height: 3rem;
@@ -114,8 +110,30 @@ body {
   background-image: url('../img/orar.jpg'); /* Ruta de la imagen */
   background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
   background-position: center; /* Centra la imagen */
-  padding: 100px;
+  padding: 10px;
+  height: 100vh; /* Asegura que la imagen ocupe el 100% de la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra el contenido vertical y horizontalmente */
   
  }
 
 
+/* Ejemplo de Media Query para pantallas más pequeñas */
+@media (max-width: 767px) {
+  .form-signin {
+    max-width: 80%; /* Ancho más grande para pantallas pequeñas */
+    padding: 20px;
+  }
+  .login {
+    height: 100vh; /* Se asegura de que ocupe toda la altura de la pantalla */
+    padding: 0; /* Elimina relleno para evitar espacio innecesario */
+  }
+}
+
+
+ @media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}

@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Estilos de bootstrap y de app 
+ -->
+
+
+
+{% block head %}
+ {{ super() }} <!-- Esto incluye el contenido del bloque de la plantilla base, asegurando que los scripts globales (como Bootstrap) no se sobrescriban y se carguen antes de cualquier script específico de esta vista. -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/colaboradores.css') }}">
+{% endblock %}
+
+
+
+<div class="posts-col">
+
+<div class="posts-col2">
+    <p class="posts-col3">Post colaboradores</p>
+    <h2>Inspira y Acciona</h2>
+</div>
+
+
+
+<!-- Mostrar el botón solo si el usuario está logueado -->
+ <div class="mss-col">
+{% if session.get('user_id') %}
+    <a href="{{ url_for('colaborador.nuevo_contenido') }}" class="btn btn-outline-info postcol_button">Añadir Post</a>
+    <a href="{{ url_for('colaborador.mis_colaboraciones') }}" class="btn btn-outline-secondary ml-3 Miscol_button">Mis Colaboraciones</a>
+ 
+{% else %}
+    <p>Si eres colaborador inicia sesión para añadir un nuevo post. 
+    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-success me-2">Iniciar sesión</a></p>
+{% endif %}
+ </div>
+
+
+<div class="row row-cols-1 row-cols-md-2 g-4 row_colab">
+    {% if posts %}
+        {% for post in posts %}
+            <div class="col mb-4">
+
+                <div class="card" id="post-{{ post.id }}">
+
+                    <div class="card-body">
+
+                        <!-- Mostrar enlace de edición si el usuario es el autor 
+                        {% if session.get('user_id') == post.author %}
+                            <div class="mt-3">
+                                <a href="{{ url_for('colaborador.editar_contenido', post_id=post.id) }}" class="btn btn-light btn-sm">Editar</a>
+                            </div>
+                        {% endif %} -->
+
+                        <h5 class="card-title h5col">{{ post.titulo }}</h5>
+
+
+                        <!-- Descripción truncada con " ver más/ Ver menos" -->
+                        <div class="post-description">
+                            <p id="description-summary-{{ post.id }}" class="card-text">
+                                {{ post.descripcion[:100] }}...
+                            </p>
+                            <p id="description-full-{{ post.id }}" class="card-text" style="display: none;">
+                                {{ post.descripcion }}
+                            </p>
+                            <a href="javascript:void(0);" id="toggle-description-{{ post.id }}" class="description-toggle-link">Ver más</a>
+                        </div>
+                        
+
+                        <!-- Mostrar el enlace si es un audio -->
+                        {% if post.enlace and post.enlace.endswith(".mp3") %}
+                            <div class="audio-container">
+                                <audio controls>
+                                    <source src="{{ post.enlace }}" type="audio/mp3">
+                                    Tu navegador no soporta el reproductor de audio.
+                                </audio>
+                            </div>
+                        {% endif %}
+
+                        <!-- Mostrar el enlace si es un video o contenido -->
+                        {% if post.enlace and not post.enlace.endswith(".mp3") %}
+                            <p><a href="{{ post.enlace }}" target="_blank">Ver contenido</a></p>
+                        {% endif %}
+
+                        <!-- Código embebido (iframe) -->
+                        {% if post.codigo %}
+                            <div class="embed-code">
+                                {{ post.codigo | safe }} <!-- Renderiza el iframe correctamente -->
+                            </div>
+                        {% endif %}
+
+                        
+
+
+                     
+                           <!-- Mostrar el autor y su foto -->
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+
+                          <div class="d-flex align-items-center">
+                            {% set usuario = usuarios.get(post.author) %}
+                            {% if usuario %}
+                                <img src="{{ url_for('static', filename=usuario.photo or 'img/usuario.png') }}" alt="Foto de {{ usuario.username }}" width="40" height="40" class="rounded-circle">
+                                <span><b>{{ usuario.username }}</b> - {{ post.created.strftime('%d de %B %Y') }}</span>
+                            {% else %}
+                                <!-- Si el usuario no está en el diccionario, mostramos "Autor no encontrado" -->
+                                <img src="{{ url_for('static', filename='img/usuario.png') }}" alt="Foto de usuario" width="40" height="40" class="rounded-circle">
+                                <span><b>Autor no encontrado</b> - {{ post.created.strftime('%d de %B %Y') }}</span>
+                            {% endif %}
+                          </div>
+                       
+                        
+
+
+
+                        
+                        <!-- Mostrar información adicional -->
+                        <div class="d-flex align-items-center">
+                        {% if post.pais %}
+                            <p class="mr-3" style="margin-right: 20px; margin-bottom: 0;"> {{ post.pais }}</p>
+                        {% endif %}
+
+
+                         <!-- Mostrar el enlace de la red social con el icono correspondiente -->
+                        {% if post.red_social %}
+                            <div class="mt-3 social-col">
+                                <a href="{{ post.red_social }}" target="_blank" aria-label="Ir a {{ post.red_social }}">
+                                    {% if 'facebook' in post.red_social %}
+                                        <i class="fab fa-facebook-square" style="color:#1877f2;"></i> <!-- Facebook -->
+                                    {% elif 'twitter' in post.red_social %}
+                                        <i class="fab fa-twitter" style="color:#1da1f2;"></i> <!-- Twitter -->
+                                    {% elif 'instagram' in post.red_social %}
+                                        <i class="fab fa-instagram" style="color:#e1306c;"></i> <!-- Instagram -->
+                                    {% elif 'linkedin' in post.red_social %}
+                                        <i class="fab fa-linkedin" style="color:#0077b5;"></i> <!-- LinkedIn -->
+                                    {% elif 'youtube' in post.red_social %}
+                                        <i class="fab fa-youtube" style="color:#ff0000;"></i> <!-- YouTube -->
+                                    {% elif 'tiktok' in post.red_social %}
+                                        <i class="fab fa-tiktok" style="color:#000000;"></i> <!-- TikTok -->
+                                    {% else %}
+                                        <i class="fab fa-globe" style="color:#666;"></i> <!-- Icono genérico si no es ninguna de las anteriores -->
+                                    {% endif %}
+                                </a>
+                            </div>
+                        {% endif %}
+                          </div>
+
+                        </div>
+
+
+                        
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+        {% endfor %}
+    {% else %}
+        <p>No hay posts de colaboradores disponibles.</p>
+    {% endif %}
+</div>
+
+
+</div>
+
+
+{% endblock %}
+
+  {% block scripts %}
+  {{ super() }}
+  <script>
+  
+    // Función para alternar entre "Ver más" y "Ver menos"
+    {% for post in posts %}
+      document.getElementById('toggle-description-{{ post.id }}').addEventListener('click', function() {
+        const fullDescription = document.getElementById('description-full-{{ post.id }}');
+        const summaryDescription = document.getElementById('description-summary-{{ post.id }}');
+        const button = document.getElementById('toggle-description-{{ post.id }}');
+        
+        if (fullDescription.style.display === 'none') {
+          // Mostrar contenido completo
+          fullDescription.style.display = 'block';
+          summaryDescription.style.display = 'none';
+          button.textContent = 'Ver menos';  // Cambiar texto a "Ver menos"
+        } else {
+          // Volver al resumen
+          fullDescription.style.display = 'none';
+          summaryDescription.style.display = 'block';
+          button.textContent = 'Ver más';  // Cambiar texto a "Ver más"
+        }
+      });
+    {% endfor %}
+  </script>
+  {% endblock %}

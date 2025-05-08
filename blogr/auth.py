@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash, session, g
 from werkzeug.security import generate_password_hash, check_password_hash
+import re
 
-from .models import User
+from .models import User, Post
 from blogr import db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
@@ -20,17 +21,35 @@ def register():
         #validacion de datos
         error = None
 
+
+         # Validación de contraseña: debe tener al menos una letra y al menos un número
+        if not re.search(r'[a-zA-Z]', password):
+            error = 'La contraseña debe contener al menos una letra.'
+        elif not re.search(r'[0-9]', password):
+            error = 'La contraseña debe contener al menos un número.'
+
+
+
+
+
         #Comparando nombre de usuario con los existentes
         user_email = User.query.filter_by(email = email).first()
         if user_email == None:
-            db.session.add(user)
-            db.session.commit()
-            return redirect(url_for('auth.login'))
+            try:
+                db.session.add(user)
+                db.session.commit()
+                flash('Registro exitoso! Ahora puedes iniciar sesión.')
+                return redirect(url_for('auth.login'))
+            except Exception as e:
+                db.session.rollback()
+                error = f'Ocurrió un error al registrar el usuario: {str(e)}'
         else:
             error = f'El correo {email} ya esta registrado'
         
-        flash(error)
-
+        if error:
+            flash(error)
+            return redirect(url_for('auth.register'))
+        
     return render_template('auth/register.html')
 
 
@@ -132,3 +151,29 @@ def profile(id):
       
 
     return render_template('auth/profile.html', user = user, photo = photo)
+
+
+
+
+# Eliminar cuenta de usuario
+@bp.route('/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_user(id):
+    user = User.query.get_or_404(id)
+
+    # Eliminar todos los posts del usuario
+    Post.query.filter_by(author=id).delete()
+
+    # Eliminar el usuario
+    db.session.delete(user)
+    db.session.commit()
+
+    flash(f'El usuario {user.username} y todos sus posts fueron eliminados correctamente.')
+
+    return redirect(url_for('auth.login'))  # Redirige a la página de login o a cualquier otra vista que consideres
+
+
+
+
+
+

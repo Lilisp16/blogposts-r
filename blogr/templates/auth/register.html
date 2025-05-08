@@ -12,13 +12,13 @@
             <div class="col-lg-6 text-center text-lg-start registrar">
                 <h1 class="display-4 fw-bold  mb-3 fst-italic">{% block title  %}Registrate en VINO Y ACEITE {% endblock %} </h1>
 
-                <p class="col-lg-10 fs-4">Aquí podrás compartir tus ideas, pensamientos y experiencias con una comunidad
+                <p class="col-lg-10 fs-4">Haz parte de nuestra comunidad; Aquí podrás compartir tus ideas, pensamientos y experiencias con una comunidad
                     global de lectores.
                     Nuestra plataforma es fácil de usar y te permite publicar tus blogs en pocos pasos.
                 </p>
 
                 <p class="col-lg-10 fs-4">
-                    ¡Únete a nuestra comunidad hoy y comienza a compartir tus ideas con el mundo!
+                    ¡Únete hoy, conviertete en Colaborador y comienza a compartir la palabra con el mundo!
                 </p>
             </div>
 
@@ -26,7 +26,7 @@
                 <form class="p-4 p-md-5 border rounded-3 bg-light" method="post">
 
 
-                    <!-- Bloque para mostrar mensajes flash -->
+                    <!-- Bloque para mostrar mensajes flash AQUI MI MENSAJE DE ERROR -->
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                             <div class="alert alert-danger" role="alert">
@@ -42,7 +42,7 @@
 
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="username" name="username" required placeholder="name@example.com">
+                        <input type="text" class="form-control" id="username" name="username" required minlength="3" >
                         <label for="username">Nombre de perfil</label>
                     </div>
 
@@ -52,8 +52,18 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" name="password" required minlength="6" placeholder="Password">
+                        <input type="password" class="form-control" id="password" name="password" required minlength="8" pattern=".*[a-zA-Z].*[0-9].*" placeholder="Password">
                         <label for="password">Contraseña</label>
+
+                         <!-- Mensaje informativo sobre los requisitos de la contraseña -->
+                        <small id="password-info" class="form-text text-muted">
+                            La contraseña debe tener:
+                            <ul>
+                                <li id="length" class="invalid">Al menos 8 caracteres.</li>
+                                <li id="letter" class="invalid">Al menos una letra (puede ser mayúscula o minúscula).</li>
+                                <li id="number" class="invalid">Al menos un número.</li>
+                            </ul>
+                        </small>
                     </div>
 
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Registrate</button>
@@ -71,4 +81,9 @@
 
 
     {% block row %}
+    {% endblock %}
+
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='js/validate_password.js') }}"></script>
     {% endblock %}

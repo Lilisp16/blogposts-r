@@ -1,4 +1,6 @@
 
+
+
 h1,
 h2,
 h3,
@@ -9,9 +11,87 @@ h6 {
 }
 
 h2{
- color: #cc9712;;
-
+ color: #cc9712;
 }
+
+h3{
+    color: #cc9712;
+   }
+
+   h4{
+    color: #8B0000;
+}
+
+
+
+
+
+/* Estilos para la clase contenido-footer */
+.contenido-footer {
+    margin-top: 20px;         /* Márgenes superiores */
+    margin-bottom: 20px;      /* Márgenes inferiores */
+    margin-left: 60px;        /* Márgenes a la izquierda */
+    margin-right: 60px;       /* Márgenes a la derecha */
+    padding: 20px;            /* Relleno interno para que el contenido no toque los bordes */
+    background-color: #f9f9f9; /* Color de fondo suave */
+    border: 1px solid #ccc;   /* Borde gris alrededor del contenedor */
+    border-radius: 5px;       /* Bordes redondeados para un diseño más moderno */
+  }
+  
+  .contenido-footer h2 {
+          /* Tamaño de fuente mayor para los títulos */
+    margin-bottom: 15px;       /* Margen inferior entre el título y el contenido */
+ 
+}
+  
+  .contenido-footer p {
+    font-size: 1em;            /* Tamaño de fuente estándar para los párrafos */
+    line-height: 1.6;          /* Mejorar la legibilidad con mayor altura de línea */
+    color: #555;               /* Color gris oscuro para el texto */
+  }
+  
+
+  .mini_editar {
+    margin-left: 60px;        /* Márgenes a la izquierda */
+    margin-right: 60px;       /* Márgenes a la derecha */
+
+  }
+
+
+
+  /*ESTILOS PARA FOOTER BASES BIBLICAS */
+
+  .contenido-bases-biblicas {
+    margin-top: 20px;         /* Márgenes superiores */
+    margin-bottom: 20px;      /* Márgenes inferiores */
+    margin-left: 60px;        /* Márgenes a la izquierda */
+    margin-right: 60px;       /* Márgenes a la derecha */
+    padding: 20px;            /* Relleno interno para que el contenido no toque los bordes */
+    background-color: #f9f9f9; /* Color de fondo suave */
+    border: 1px solid #ccc;   /* Borde gris alrededor del contenedor */
+    border-radius: 5px;       /* Bordes redondeados para un diseño más moderno */
+  }
+  
+  .contenido-bases-biblicas h2 {
+          /* Tamaño de fuente mayor para los títulos */
+    margin-bottom: 15px;       /* Margen inferior entre el título y el contenido */
+ 
+}
+  
+  .contenido-bases-biblicas p {
+    font-size: 1em;            /* Tamaño de fuente estándar para los párrafos */
+    line-height: 1.6;          /* Mejorar la legibilidad con mayor altura de línea */
+    color: #555;               /* Color gris oscuro para el texto */
+  }
+  
+  .cancelarBB{
+    margin-bottom: 15px;
+    
+  }
+
+ 
+
+
 
 /*NUEVOS ESTILOS PARA UBICAR EL CONTENIDO*/
 
@@ -119,6 +199,8 @@ footer{
 }
 
 
+
+
 footer .list-unstyled li a {
     color:  #800000;; /* Color inicial de los íconos */
     transition: color 0.3s ease; /* Transición suave para el cambio de color */
@@ -145,6 +227,7 @@ footer .nav-link:hover {
     font-size: small;
 }
 
+
 .logoby{
     width: 30px;
     margin-left: auto;
@@ -156,16 +239,38 @@ footer .nav-link:hover {
     text-align: center;
 }
 
+
+.navbar-toggler{
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    border: 1.5px solid #cc9712; /* Un borde blanco alrededor del botón */
+  }
+  
+  /* Si deseas que el icono resalte cuando el botón es presionado */
+  .navbar-toggler:focus {
+    background-color:  #cc9712; /* Color brillante cuando está activo */
+  }
+  
+  .navbar-toggler-icon {
+    background-color:  #982a2a; /* Icono blanco */
+    border-radius: 4px;
+  }
+   
+
+
+
+
 /*HEADER*/
 
 
 header .menu{
-    background-color: hsla(38, 79%, 43%, 0.393); /* 50% de transparencia */
+   /* background-color: hsla(38, 79%, 43%, 0.393); /* 50% de transparencia */
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el efecto 3D */
     transform: translateZ(0); /* Ayuda a activar el renderizado 3D en algunos navegadores */
-    
-    
+    background-image: url('/static/img/Designer9.jpeg');  /* Ruta de la imagen de fondo */
+    background-size: cover;   /* La imagen cubre todo el contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 .index{
@@ -185,13 +290,17 @@ header .menu{
     
 }*/
 
+.misesion{
+    background-color: #59b479c5;
+}
+
 
 /*ESTILOS TARJETA SUBLISTA*/
 .sublista {
-    background-color:  #a0ebfc;
+    background-color:#80000036;;
     flex-direction: column; /* Alinea los elementos en columna */
-    margin-left: 70px;
-    width: 200px;
+    margin-left: 30px;
+    width: 100px;
     border-radius: 22px;  /*cambie la configuracion de gropdown-menu por sublista*/
     transition: background-color 0.3s ease;
     
@@ -201,7 +310,7 @@ header .menu{
 .dropdown-menu a{
     text-align: center;
     border-radius: 20px;
-    color: gray;
+    color: #f5f5f5;
     font-size: 20px;
    
 }
@@ -209,12 +318,27 @@ header .menu{
 
 .dropdown-menu a:hover{
     color:  #800000; /* Cambia el color del texto */
-    background-color: #cc9712; /* Cambia el color de fondo */
+    background-color: #cc971273; /* Cambia el color de fondo */
 
 }
 
 
 
+
+
+
+/* Sombra de texto en los enlaces del menú */
+.menuUno {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.753); /* Sombra negra para resaltar el texto */
+    color: white;  /* Asegura que el texto sea blanco para el contraste */
+    font-size: 16px; /* Puedes ajustar el tamaño de la fuente si lo deseas */
+    padding: 8px 16px; /* Espaciado dentro del enlace */
+  }
+  
+  /* Opcional: Cambiar la sombra cuando se pasa el mouse (hover) */
+  .nav-link:hover {
+    text-shadow: 2px 2px 6px rgba(255, 174, 34, 0.8); /* Sombra naranja más prominente en hover */
+  }
 
 
 
@@ -234,10 +358,32 @@ header .menu{
 
 
 
-.nav-link {
+.link2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.753); /* Sombra negra para resaltar el texto */
     color: white;
     font-size: 20px;
 }
+
+.nav-link {
+    font-size: 20px;
+    text-decoration: none;
+    
+}
+
+/* Cambiar el color de los enlaces en focus */
+.nav-link:focus {
+    color:  gold; /* Cambia al color deseado */
+    background-color: transparent; /* Evitar fondo */
+  }
+
+a{
+    text-decoration: none;
+    color:  #800000;
+    
+}
+
+
+
 
 
 
@@ -245,14 +391,18 @@ header .menu{
     color:  #800000; /* Cambia el color al pasar el mouse */
 }
 
+
+
+
 .vinoyaceite3{
     filter: brightness(0) invert(1); /* Intenta hacer que el logo se vea blanco */
-    width: 250px;
+    width: 150px;
 
 }
 
 .offcanvas-header{
     background-color: #800000;
+    max-width: 60%;
    
 }
 
@@ -264,15 +414,22 @@ header .menu{
 
 
 .offcanvas-body{
-    background-color: rgba(204, 151, 18, 0.574); /* Color oro con 50% de opacidad */
+    background-image: url('/static/img/Designer9.jpeg');  /* Ruta de la imagen de fondo */
+    background-size: cover;   /* La imagen cubre todo el contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    /*background-color: rgba(204, 151, 18, 0.574); /* Color oro con 50% de opacidad */
     overflow-y: auto; /* Permitir scroll solo si es necesario */
     max-height: calc(100vh - 56px); /* Ajustar según el tamaño del encabezado */
     padding: 1rem; /* Ajustar el padding */
     border-radius: 0 0 100px 0 !important;; /* Esquinas redondeadas solo a la derecha */
     max-height: calc(100vh - 56px); /* Ajustar según el tamaño del encabezado */
- 
-
+    max-width: 60%;
 }
+
+.offcanvas.offcanvas-start {
+    border: none !important; /* Elimina el borde */
+ }
 
 /* para posts clase table*/
 
@@ -355,4 +512,181 @@ input[readonly] {
 .stretched-link {
     color: #8B0000; /* Color vino */
     text-decoration: none; /* Opcional: quita el subrayado si lo deseas */
+}
+
+
+
+
+/* Estilos para los mensajes de validación */
+.invalid {
+    color: red;
+}
+
+.valid {
+    color: green;
+}
+
+
+
+
+/* configuracion WHATSAPP */
+#whatsapp-float-btn {
+    position: fixed;
+    bottom: 20px; /* Distancia desde el fondo de la página */
+    right: 20px; /* Distancia desde el lado derecho */
+    background-color: rgb(46, 177, 46); /* Color de fondo del ícono (opcional) */
+    border-radius: 50%; /* Hacer el ícono redondo */
+    padding: 4px; /* Ajusta el tamaño del ícono */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra alrededor del ícono */
+    transition: transform 0.2s ease-in-out; /* Transición para el hover */
+}
+
+#whatsapp-float-btn:hover {
+    transform: scale(1.1); /* Efecto de aumento cuando el usuario pasa el mouse sobre el ícono */
+}
+
+#whatsapp-float-btn img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+/*configuracion para la edicion del devocional */
+
+
+
+.devocional-form {
+    margin: 20px;  /* Margen alrededor del formulario, separa el contenido de los bordes de la página */
+}
+
+.devocional-form textarea.form-control {
+    margin-top: 10px;  /* Espacio superior */
+    margin-bottom: 20px;  /* Espacio inferior */
+    padding: 12px;  /* Espacio interno */
+    font-size: 16px;  /* Tamaño de fuente */
+    border-radius: 5px;  /* Bordes redondeados */
+    border: 1px solid #ccc;  /* Borde suave */
+}
+
+.devocional-form textarea.form-control:focus {
+    border-color: #007bff;  /* Borde azul cuando se selecciona */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);  /* Sombra suave en el foco */
+}
+
+
+
+
+
+.devocional h2{
+    color: #800000;
+    font-size: 20px;
+
+}
+
+
+.modal-header{
+    background-color: rgba(116, 221, 156, 0.205); /* RGBA con 58% de opacidad */
+   /* background-image: url('/static/img/Designer6.jpeg');  /* Ruta de la imagen de fondo */
+    background-size: cover;   /* La imagen cubre todo el contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+
+.modal-header h5{
+    color: gray
+}
+
+
+
+
+
+/* Asegura que los elementos dentro de colummodal se alineen horizontalmente */
+.colummodal {
+    display: flex;            /* Activamos flexbox en el contenedor */
+    gap: 20px;                /* Espacio entre el título y el contenido */
+    align-items: flex-start;  /* Alineación superior */
+    background-image: url('/static/img/diseño2.jpeg');  /* Ruta de la imagen de fondo */
+    background-size: cover;   /* La imagen cubre todo el contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+  }
+  
+  /* Estilo para el div del título (devocional) */
+  .devocional {
+    width: 150px;             /* Ancho ajustado para el título */
+    padding: 20px;
+    background-color: rgba(204, 151, 18, 0.742); /* Fondo semi-transparente para el título */
+    flex-shrink: 0;           /* Evita que el título se encoja */
+    border-radius: 0px 0px 0px 0px; /* Bordes redondeados solo en las esquinas superiores e inferiores */
+    position: relative; /* Necesario para que ::after se posicione correctamente */
+    border-left: 5px dashed rgba(0, 0, 0, 0.6); /* Líneas discontinuas como las de un cuaderno */
+  }
+  
+  /* Usando ::after para crear un borde curvado hacia adentro */
+  .devocional::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px; /* Mueve el borde hacia afuera del contenedor */
+    bottom: 0;
+    width: 10px; /* Ancho del borde curvado */
+    background-color: rgba(0, 0, 0, 0.3); /* Color del borde, negro con transparencia */
+    border-radius: 0px 0px 0px 0px; /* Curvatura interna */
+  }
+
+
+
+  
+  /* Estilo para el div del contenido (devocional_content) */
+  .devocional_content {
+    max-width: 80%;           /* Limita el ancho máximo del contenido */
+    padding: 10px;
+    flex-grow: 1;             /* El contenido ocupa el espacio restante */
+    /*background-color: rgba(0, 0, 0, 0.674); /* Fondo oscuro semi-transparente para mejorar la legibilidad */
+    background-color: rgba(0, 0, 0, 0.856); /* Fondo oscuro semi-transparente para mejorar la legibilidad */
+    color: white;               /* Color del texto blanco para que contraste con el fondo */
+    font-size: 20px;
+    border-radius: 8px;
+   /* text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Sombra negra para resaltar el texto */
+  
+  /* Borde con transparencia para efecto 3D */
+  border: 4px solid transparent; /* Borde transparente */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.582)); /* Fondo con gradiente */
+  
+  /* Sombra externa para dar la sensación de profundidad */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6); /* Profundidad */
+  
+  /* Ajuste para que el fondo se vea y no sea tapado */
+  background-clip: content-box, border-box; /* Asegura que el fondo se vea bien */
+}
+
+
+.modal-body {
+    max-height: 50vh; /* Ajusta esta altura según lo que necesites */
+    overflow-y: auto;
+}
+
+
+/*PARA NUEVAS CLASES DEL INDEX*/
+/* Color oro para el texto dentro de <strong> */
+.oro {
+    color: gold;
+}
+
+.hola {
+  font-weight: bold;
+}
+
+/* Estilo para el texto dentro de <p> */
+.pbienvenido {
+    font-size: 1.5em;   /* Aumenta el tamaño de la fuente */
+    
+}
+
+
+.versiculo{
+    color: #800000;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

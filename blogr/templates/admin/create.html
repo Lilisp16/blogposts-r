@@ -28,6 +28,8 @@
                           {{ ckeditor.create() }}
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
+                    <!-- Botón para cancelar y regresar a la página anterior (Lista de Blogs) -->
+                    <a href="{{ url_for('post.posts') }}" class="btn btn-secondary">Cancelar</a>
                 </form>
             </div>
         </div>

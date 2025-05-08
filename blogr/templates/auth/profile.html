@@ -58,10 +58,31 @@
                         </span>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                     <!-- Botón de guardar, inicialmente oculto -->
+                    <button type="submit" class="btn btn-success" id="save-button" style="display: none;">Guardar Cambios</button>
+                    
+                    <!-- Botón de cancelar, inicialmente oculto -->
+                    <button type="button" class="btn btn-secondary" id="cancel-button" style="display: none;">Cancelar</button>
+                    
+                    <!-- Botón de editar -->
+                    <button type="button" class="btn btn-warning" id="edit-button">Editar información</button>
+                   <!-- <button type="submit" class="btn btn-success">Guardar Cambios</button> -->
+                </form>
+
+                 <!-- Formulario para eliminar el perfil -->
+                <form method="POST" action="{{ url_for('auth.delete_user', id=user.id) }}" onsubmit="return confirm('¿Estás seguro de que deseas eliminar tu perfil? Esta acción es irreversible.')">
+                  <span class"eliminarperfil" >Si deseas eliminar tu cuenta de usuario y el registro de tus post clic aquí⚠️</span>
+                    <button type="submit" class="btn btn-dark mt-3">Eliminar mi perfil</button>
                 </form>
             </div>
+            
         </form>
+        
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+ {{ super() }}   <!-- Esto incluye el contenido del bloque de la plantilla base, asegurando que los scripts globales (como Bootstrap) no se sobrescriban y se carguen antes de cualquier script específico de esta vista. -->
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
 {% endblock %}

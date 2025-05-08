@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
     const passwordInput = document.getElementById('password');
     const togglePasswordSpan = document.querySelector('.toggle-password');
     const eyeIcon = togglePasswordSpan.querySelector('.eye-icon');
@@ -27,4 +27,4 @@ document.addEventListener('DOMContentLoaded', function () {
         eyeIcon.classList.toggle('closed', isPassword);
         eyeIcon.classList.toggle('open', !isPassword);
     });
-});
+}); */

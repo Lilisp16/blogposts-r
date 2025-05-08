@@ -8,7 +8,8 @@
     <title>VINOYACEITE - {% block title %}{% endblock %}</title>
 
     <!-- Estilos de bootstrap y de app -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">-->
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
     {% block head %}
@@ -37,7 +38,8 @@
                         <img src="{{ url_for ('static', filename = g.user.photo) }}" alt="mdo" width="32" height="32" class="rounded-circle">
                         {% endif %}
                     </a>
-                    <ul class="dropdown-menu text-small">
+                    
+                    <ul class="dropdown-menu text-small misesion">
 
                         <li>
                           <span class="dropdown-item fw-bold">¡Hola, {{ g.user.username }}!</span>
@@ -48,7 +50,7 @@
 
                         
                         <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ url_for('post.create') }}">
-                                <span class="d-inline-block bg-success rounded-circle p-1"></span>
+                                <span class="d-inline-block bg-primary rounded-circle p-1"></span>
                                 Crear Blog
                             </a>
                         </li>
@@ -59,8 +61,14 @@
                             </a>
                         </li>
 
+                        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ url_for('colaborador.mis_colaboraciones') }}">
+                                <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+                                Mis Colaboraciones
+                            </a>
+                        </li>
+
                         <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ url_for('auth.profile', id = g.user.id) }}">
-                                <span class="d-inline-block bg-info rounded-circle p-1"></span>
+                                <span class="d-inline-block bg-success rounded-circle p-1"></span>
                                 Perfil
                             </a>
                         </li>
@@ -100,85 +108,63 @@
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
                     <li class="nav-item dropdown submenu">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Evangelio
+                      <a class="nav-link dropdown-toggle link2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        El verbo
                       </a>
                       <ul class="dropdown-menu sublista">
-                        <li><a class="dropdown-item" href="#">Historia</a></li>
-                        <li><a class="dropdown-item" href="#">Evangelios</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('home.temas_estudio', subseccion='antiguo_pacto') }}">Antiguo Pacto</a></li>
+
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Nuevo Pacto</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('home.temas_estudio', subseccion='nuevo_pacto') }}">Nuevo Pacto</a></li>
                       </ul>
                     </li>
 
 
                     <li class="nav-item dropdown submenu">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                      <a class="nav-link dropdown-toggle link2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tipos de Parabolas
                       </a>
                       <ul class="dropdown-menu sublista">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('home.temas_estudio', subseccion='elemento') }}">Elemento</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('home.temas_estudio', subseccion='lugar') }}">Lugar</a></li>
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                    </li>
-
-           
-
-                    <li class="nav-item dropdown submenu">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Parabolas
-                      </a>
-                      <ul class="dropdown-menu sublista">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('home.temas_estudio', subseccion='persona') }}">Persona</a></li>
                       </ul>
                     </li>
 
                     <li class="nav-item dropdown submenu">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Colaboradores
+                      <a class="nav-link dropdown-toggle link2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sermones
                       </a>
                       <ul class="dropdown-menu sublista">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="https://vencedores-en-cristo-xzic7l0.gamma.site/" target="_blank">Ultimo sermon</a></li>
                       </ul>
-                      
                     </li>
 
                   </ul>
-
                 </div>
-               
+                </div>
 
-              </div>
+
+
 
 
               <ul class="nav justify-content-center">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Active</a>
+                  <a class="nav-link menuUno" aria-current="page" href="https://vencedores-en-cristo-xzic7l0.gamma.site/" target="_blank">Sermones</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link menuUno" href="#"  data-bs-target="#modalDevocional" id="openModalDevocional">Devocionales</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link menuUno" href="{{ url_for('colaborador.colaboradores') }}">Colaboradores</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" aria-disabled="true">Podcast</a>
+                  <a class="nav-link menuUno disabled" aria-disabled="true">Podcast</a>
                 </li>
               </ul>
 
@@ -186,7 +172,9 @@
     
         </nav>
       </div>
+      
       {% endblock %}
+
     </header>
 
 
@@ -195,7 +183,7 @@
   
     <!-- Sección de bloque de contenido -->
     <main>
-      {% for message in get_flashed_messages() %}
+    <!-- {% for message in get_flashed_messages() %}
       <div class="container mt-3">
         <div class="row">
           <div class="col-md-6 mx-auto">
@@ -205,7 +193,7 @@
           </div>
         </div>
       </div>
-      {% endfor %}
+      {% endfor %}--> 
 
 
      {% block content %}
@@ -223,10 +211,17 @@
       {% block row %}
         <div class="minifooter">
           <ul class="nav justify-content-center pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Terminos y Condiciones</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Politica de Privacidad</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Política de cookies</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+            <li class="nav-item"><a href="{{ url_for('home.terminos_y_condiciones') }}" class="nav-link px-2 text-body-secondary">Terminos y Condiciones</a></li>
+            <li class="nav-item"><a href="{{ url_for('home.politicas_y_privacidad') }}" class="nav-link px-2 text-body-secondary">Politica de Privacidad</a></li>
+            <li class="nav-item"><a href="{{ url_for('home.cookies') }}" class="nav-link px-2 text-body-secondary">Política de cookies</a></li>
+            <li class="nav-item"><a href="{{ url_for('home.acerca_de') }}" class="nav-link px-2 text-body-secondary">About</a></li>
+           <!-- Solo visible para usuarios administradores -->
+            {% if session.get('user_id') and get_user(session.get('user_id')).username == 'admin' %}
+              <li><a href="{{ url_for('home.editar', seccion='terminos_y_condiciones') }}">Editar Términos</a></li>
+              <li><a href="{{ url_for('home.editar', seccion='politicas_y_privacidad') }}">Editar Políticas</a></li>
+              <li><a href="{{ url_for('home.editar', seccion='cookies') }}">Editar Cookies</a></li>
+              <li><a href="{{ url_for('home.editar', seccion='about') }}">Editar Acerca de</a></li>
+            {% endif %}
           </ul>
         </div>
 
@@ -235,46 +230,51 @@
           <div class="col-6 col-md-2 mb-3">
             <h5>Bases Biblicas</h5>
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Principio</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">El Evangelio</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Profecia y el Cumplimiento</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">La Promesa</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">El Fin</a></li>
+
+            <li class="nav-item mb-2"><a href="{{ url_for('home.bases_biblicas', subseccion='el_principio') }}" class="nav-link p-0">El Principio</a></li>
+            <li class="nav-item mb-2"><a href="{{ url_for('home.bases_biblicas', subseccion='el_evangelio') }}" class="nav-link p-0">El Evangelio</a></class=>
+            <li class="nav-item mb-2"><a href="{{ url_for('home.bases_biblicas', subseccion='la_promesa') }}" class="nav-link p-0">La Promesa</a></li>
+            <li class="nav-item mb-2"><a href="{{ url_for('home.bases_biblicas', subseccion='el_fin') }}" class="nav-link p-0">El Fin</a></li>
             </ul>
           </div>
     
+
+
+    
           <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
+            <h5>Temas de Estudio</h5>
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+       
+            <li class="nav-item mb-2"><a href="{{ url_for('home.temas_estudio', subseccion='sermones') }}" class="nav-link p-0">Sermones</a></li>
+            <li class="nav-item mb-2"><a href="{{ url_for('home.temas_estudio', subseccion='parabolas') }}" class="nav-link p-0">Parabolas</a></li>
+            <li class="nav-item mb-2"><a href="{{ url_for('home.temas_estudio', subseccion='creemos') }}" class="nav-link p-0">Lo que Creemos</a></li>
             </ul>
           </div>
     
           <div class="col-6 col-md-2 mb-3">
             <h5>Recursos</h5>
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Youversion</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+              <li class="nav-item mb-2"><a href="https://www.bible.com/" class="nav-link p-0" target="_blank">Youversion</a></li>
+              <li class="nav-item mb-2"><a href="https://www.blueletterbible.org/" class="nav-link p-0" target="_blank">Blue Letter Bible</a></li>
+              <li class="nav-item mb-2"><a href="https://biblehub.com/strongs.htm" class="nav-link p-0" target="_blank">Bible Hub</a></li>
             </ul>
           </div>
     
           <div class="col-md-5 offset-md-1 mb-3">
             <form>
-              <h5>Subscribe to our newsletter</h5>
-              <p>Monthly digest of what's new and exciting from us.</p>
+              <h5>Necesitas orientacion</h5>
+              <p>comunicate con nosotros para apoyarte en tu proceso</p>
               <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label for="newsletter1" class="visually-hidden">Email address</label>
-                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                <button class="btn btn-primary" type="button">Subscribe</button>
+              <!-- Enlace para contactar por correo -->
+                <a href="mailto:operadorpersona0@gmail.com?subject=Necesito Orientación&body=Hola, necesito orientación sobre..." class="btn btn-outline-info">
+                 <i class="fas fa-envelope-open-text mr-2"></i>  Enviar Correo</a>
               </div>
             </form>
+
+            <!-- Ícono flotante de WhatsApp -->
+            <a href="https://wa.me/3218394396?text=Hola,%20necesito%20orientación." target="_blank" id="whatsapp-float-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 50px; height: 50px;">
+            </a>
           </div>
         </div>
       {% endblock %}
@@ -283,20 +283,16 @@
     
 
         <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 custom-border-top">
-          <p>© 2024 Company, Inc. All rights reserved.
-            <img class="logoby" src="{{ url_for('static', filename = 'img/byempresa.svg') }}" alt="logoby">
+          <p>© 2024 todos los derechos reservados por MainSys.
+            <img class="logoby" src="{{ url_for('static', filename = 'img/byredondo.png') }}" alt="logoby">
           </p>
-          <ul class="list-unstyled d-flex">
+          <ul class="list-unstyled d-flex"> 
             <li class="ms-3">
                 <a class="link-body-emphasis" href="https://facebook.com" target="_blank">
                     <i class="fab fa-facebook-f" style="font-size: 24px;"></i>
                 </a>
             </li>
-            <li class="ms-3">
-                <a class="link-body-emphasis" href="https://twitter.com" target="_blank">
-                    <i class="fab fa-twitter" style="font-size: 24px;"></i>
-                </a>
-            </li>
+          
             <li class="ms-3">
                 <a class="link-body-emphasis" href="https://instagram.com" target="_blank">
                     <i class="fab fa-instagram" style="font-size: 24px;"></i>
@@ -312,10 +308,16 @@
     </div>
     </footer>
 
-    <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
 
+    <!-- Incluir el modal -->
+  {% include 'modal_devocional.html' %}
+
+
+  {% block scripts %}
+    <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/eyes.js') }}"></script>
     {{ ckeditor.load() }}
+  {% endblock %}
   
 </body>
 </html>

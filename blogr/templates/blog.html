@@ -6,7 +6,7 @@
 
     <article class="container blog-post">
         <h1 class="blog-post-title mb-1">{% block title %} {{ post.title }} {% endblock %}</h1>
-        <p class="card-text mt-3">
+        <p class="-text mt-3">
             {% if get_user(post.author).photo is none %}
             <img src="{{ url_for('static', filename = 'img/usuario.png') }}" alt="mdo" width="50" height="50" class="rounded-circle">   
             {% else %} 

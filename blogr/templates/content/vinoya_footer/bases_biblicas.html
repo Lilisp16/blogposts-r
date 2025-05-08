@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="contenido-bases-biblicas">
+    <h2>{{ subseccion.replace('_', ' ').title() }}</h2>
+    <p>
+      {% if contenido %}
+        {{ contenido|safe }}
+      {% else %}
+        El contenido de esta subsección no está disponible en este momento.
+      {% endif %}
+    </p>
+  </div>
+
+  <!-- Botón de editar solo visible para el administrador -->
+  {% if 'user_id' in session and get_user(session['user_id']).is_admin %}
+    <a href="{{ url_for('home.editar_bases_biblicas', subseccion=subseccion) }}" class="btn btn-outline-info mini_editar">Editar contenido</a>
+  {% endif %}
+
+  
+{% endblock %}

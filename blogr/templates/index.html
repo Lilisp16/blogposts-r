@@ -4,27 +4,48 @@
 
       <!-- Sección de bienvenida -->
     <section class="container index" {{ value }}>
-        <div class="row bienvenido">
-            <div class="col-md-6 py-5">
+
+    <div class="row bienvenido">
+        <div class="col-md-6 py-5">
+
+    {% if session.get('user_id') %}
+
+        <h2> Hola hermano <strong class="oro"> {{ g.user.username }} </strong> </h2> 
+        <p class="pbienvenido">
+            Dios te bendiga; 
+            recuerda que la palabra de Dios es nuestro estandar y luz para nuestra vida la cual esta en Cristo Jesus
+            Nuestro señor. <span class="versiculo" id="versiculo">Juan 11:25 (NTV)
+            Jesús le dijo: —Yo soy la resurrección y la vida. El que cree en mí vivirá aun después de haber muerto.</span></p>
+            
+
+    {% else %}
+            
                 <h1 class="display-4 fst-italic">{% block title %}Bienvenido a VINO Y ACEITE {% endblock %}</h1>
-                <p>Aquí podrás compartir tus ideas, pensamientos y experiencias con una comunidad global de lectores.
-                    Nuestra plataforma es fácil de usar y te permite publicar tus blogs en pocos pasos.
+                <p>Creemos que la Palabra de Dios es nuestra guía y fortaleza. Este es un espacio para estudiar y meditar en su verdad, 
+                    y para crecer juntos en la fe.
+                    Aquí encontrarás Devocionales, Sermones, Blogs, Audios y Videos de nuestros colaboradores; flexiones y recursos que te ayudarán a profundizar en tu relación con Dios. 
+                    Te invitamos a detenerte, reflexionar y aplicar las enseñanzas bíblicas en tu vida.
                 </p>
                 <p>
-                    Para empezar, simplemente haz clic en el botón "Publica tu blog" y comienza a escribir. Puedes
-                    incluir
-                    imágenes y videos para dar vida a tus publicaciones y asegurarte de que sean atractivas para tus
-                    lectores.</p>
+                    
+                Si en algún momento necesitas orientación espiritual, o deseas compartir tus pensamientos y dudas, no dudes en contactarnos. 
+                Estamos aquí para ayudarte en tu camino de fe; juntos, buscaremos más de Dios nuestro padre y nuestro señor JesuCristo, 
+                cultivando una vida de oración y meditación diaria en su Palabra.</p>
+  
+
                 <p>
-                    ¡Únete a nuestra comunidad hoy y comienza a compartir tus ideas con el mundo!
+                   ¡Si deseas hacer parte de esta comunidad para compartir contenido y ayudar a otros en el camino de Cristo Jesus, 
+                    conviertete en Colaborador y comienza a compartir la palabra con el mundo!
                 </p>
                 <a href="{{ url_for('auth.register') }}" class="btn btn-outline-warning w-50 fs-3">Registrate</a>
 
+    {% endif %}
             </div>
             <div class="col-md-6">
                 <img src="{{ url_for('static', filename = 'img/pikaso (1).jpeg') }}" alt="Imagen de bienvenida" class="img-fluid">
             </div>
         </div>
+       
     </section>
 
     <div class="text-center">
@@ -33,9 +54,7 @@
             <div class="col-lg-6 mx-auto">
                 <p class="fs-5 mb-4">Utiliza nuestro buscador para encontrar blogs específicos o temas que te interesen.
                     Simplemente ingresa una
-                    palabra clave o frase y haz clic en "buscar". ¡Te sorprenderá lo fácil que es encontrar el contenido
-                    que
-                    buscas!
+                    palabra clave o frase y haz clic en "buscar". 
                 </p>
 
                 <div class="col container">
@@ -73,6 +92,14 @@
             {% endfor %}
         </div>
     </main>
+
+
+
+
+
+
+      <!-- JavaScript aqui -->
+
 {% endblock %}
 
   
