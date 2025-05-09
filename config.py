@@ -1,12 +1,8 @@
-SQLITE = "sqlite:///project.db"
-POSTGRESQL = "postgresql+psycopg2://postgres:0761163@172.20.165.36:5432/vinoyaceite_db"
+import os
 
 class Config:
     DEBUG = True
     SECRET_KEY = 'env-blog112024'
-    SQLALCHEMY_DATABASE_URI = POSTGRESQL
-
+    # Usamos la variable de entorno DATABASE_URL proporcionada por Render
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///project.db')  # Esto obtiene la URL de la base de datos de Render
     CKEDITOR_PKG_TYPE = 'full'
-
-
-
