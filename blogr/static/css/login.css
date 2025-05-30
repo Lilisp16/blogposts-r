@@ -122,7 +122,7 @@ body {
 /* Ejemplo de Media Query para pantallas más pequeñas */
 @media (max-width: 767px) {
   .form-signin {
-    max-width: 80%; /* Ancho más grande para pantallas pequeñas */
+    max-width: 100%; /* Ancho más grande para pantallas pequeñas */
     padding: 20px;
   }
   .login {

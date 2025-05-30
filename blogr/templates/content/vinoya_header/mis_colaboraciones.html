@@ -5,9 +5,9 @@
 {% block content %}
     <div class="container">
         <div class="header">
-            <h2 class="mb-3 mt-3">Mis publicaciones</h2>
+            <h2 class="mb-3 mt-3">Mis Posts</h2>
             <div class="d-flex justify-content-between mb-3">
-                <p>¡Bienvenido al panel de administración de tus colaboraciones!</p>
+                <p>¡Bienvenido al panel de tus <strong>colaboraciones!</strong></p>
                 <a href="{{ url_for('colaborador.nuevo_contenido') }}" class="btn btn-outline-success">AÑADIR POST</a>
             </div>
         </div>
@@ -16,7 +16,7 @@
         <table class="table mispost">
             <thead>
                 <tr>
-                    <th class="fs-5">Título del Post </th>
+                    <th class="fs-5">Título de tu Colaboración </th>
                     <th colspan="2" class="fs-5">Acciones</th>
                 </tr>
             </thead>
@@ -33,8 +33,8 @@
                     
                     
                     <td>
-                        <a href="{{ url_for('colaborador.editar_contenido', post_id=post.id) }}" class="btn btn-sm btn-warning">Editar</a>
-                        <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ post.id }})">Eliminar</a>
+                        <a href="{{ url_for('colaborador.editar_contenido', post_id=post.id) }}" class="btn btn-sm btn-warning mb-2">Editar</a>
+                        <a href="#" class="btn btn-sm btn-danger mb-2" onclick="confirmDelete({{ post.id }})">Eliminar</a>
                     
                         
                         <!-- Formulario oculto para eliminar el post -->

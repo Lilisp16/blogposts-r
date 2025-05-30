@@ -65,13 +65,13 @@
                     <button type="button" class="btn btn-secondary" id="cancel-button" style="display: none;">Cancelar</button>
                     
                     <!-- Botón de editar -->
-                    <button type="button" class="btn btn-warning" id="edit-button">Editar información</button>
+                    <button type="button" class="btn btn-warning" id="edit-button" style="background:none; border:none; padding:0; color:green; text-decoration:none; cursor:pointer;">Editar información</button>
                    <!-- <button type="submit" class="btn btn-success">Guardar Cambios</button> -->
                 </form>
 
                  <!-- Formulario para eliminar el perfil -->
                 <form method="POST" action="{{ url_for('auth.delete_user', id=user.id) }}" onsubmit="return confirm('¿Estás seguro de que deseas eliminar tu perfil? Esta acción es irreversible.')">
-                  <span class"eliminarperfil" >Si deseas eliminar tu cuenta de usuario y el registro de tus post clic aquí⚠️</span>
+                  <span class"eliminarperfil" >⚠️ Si deseas eliminar tu cuenta de usuario y el registro de tus post clic en</span>
                     <button type="submit" class="btn btn-dark mt-3">Eliminar mi perfil</button>
                 </form>
             </div>

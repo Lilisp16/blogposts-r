@@ -19,7 +19,7 @@
 <div class="posts-col2">
     <p class="posts-col3">Post colaboradores</p>
     <h2>Inspira y Acciona</h2>
-</div>
+
 
 
 
@@ -30,10 +30,12 @@
     <a href="{{ url_for('colaborador.mis_colaboraciones') }}" class="btn btn-outline-secondary ml-3 Miscol_button">Mis Colaboraciones</a>
  
 {% else %}
-    <p>Si eres colaborador inicia sesión para añadir un nuevo post. 
-    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-success me-2">Iniciar sesión</a></p>
+    <p> ¿Eres colaborador?
+    <a href="{{ url_for('auth.login') }}" class="me-2 text-decoration-underline text-success">Inicia sesión</a>
+    para añadir un nuevo post.</p>
 {% endif %}
  </div>
+</div>
 
 
 <div class="row row-cols-1 row-cols-md-2 g-4 row_colab">

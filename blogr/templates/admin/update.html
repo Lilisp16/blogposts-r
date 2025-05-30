@@ -26,6 +26,7 @@
                     {{ ckeditor.create(value=post.content) }}
                 </div>
                 <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="{{ url_for('post.posts') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
     </div>

@@ -107,7 +107,7 @@ body {
 main {
     overflow: auto; /* Maneja el desbordamiento */
     flex: 1; /* Permite que el main tome todo el espacio disponible */
-    padding-top: 140px; /* Espacio solo en la parte superior */
+    padding-top: 250px; /* Espacio solo en la parte superior */
 }
 
 
@@ -690,3 +690,4 @@ input[readonly] {
     color: #800000;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+

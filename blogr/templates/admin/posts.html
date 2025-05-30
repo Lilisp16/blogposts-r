@@ -6,9 +6,9 @@
 {% block content %}
     <div class="container">
         <div class="header">
-            <h2 class="mb-3 mt-3"> {% block title %}Mis publicaciones{% endblock %}</h2>
+            <h2 class="mb-3 mt-3"> {% block title %}Mis Posts{% endblock %}</h2>
             <div class="d-flex justify-content-between mb-3">
-                <p>¡Bienvenido al panel de administración de blogs!</p>
+                <p>¡Bienvenido al panel de tus <strong>blogs!</strong></p>
                 <a href="{{ url_for('post.create') }}" class="btn btn-outline-success">AÑADIR BLOG</a>
             </div>
         </div>
@@ -29,7 +29,7 @@
                   </td>
 
                     <td>
-                        <a href="{{ url_for('post.update', id=post.id) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{ url_for('post.update', id=post.id) }}" class="btn btn-sm btn-warning mb-2">Editar</a>
                         <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ post.id }})">Eliminar</a>
                        
 
